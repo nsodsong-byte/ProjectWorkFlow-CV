@@ -380,7 +380,7 @@
                                 <th>Net Weight(g)</th>
                                 <th>Gross Weight(g)</th>
 				<th>CPD cost(B/kg)</th>
-                                <th>Specification</th>
+                                <th>Ratio</th>
                                 <th>O.D.</th>
                                 <th>I.D.</th>
                                 <th>S.A.</th>
@@ -415,6 +415,7 @@
                 </button>
 
                 <div class="form-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="form-group"><label>Total Compound (grams/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
                     <div class="form-group"><label>Total Compound Cost (B/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
                     <div class="form-group"><label>%</label><input type="number" class="modern-input"></div>                    
                 </div>
