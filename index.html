@@ -414,8 +414,9 @@
                     Add Compound Row
                 </button>
 
-                <div class="form-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="form-group"><label>Total Compound (grams/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
+                <div class="form-grid" style="grid-template-columns: repeat(4, 1fr);">
+		<div class="form-group"><label>Total Compound Net weight (grams/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
+                    <div class="form-group"><label>Total Compound Gross weight (grams/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
                     <div class="form-group"><label>Total Compound Cost (B/pc)</label><input type="number" step="0.01" class="modern-input calc-mat" id="compound-price-pcs" oninput="updateDashboard()"></div>
                     <div class="form-group"><label>%</label><input type="number" class="modern-input"></div>                    
                 </div>
@@ -477,10 +478,9 @@
                 </div>
                 <hr>
                 <div class="form-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="form-group"><label>Total weight (gram(s)/pc)</label><input type="number" step="0.01" placeholder="0" class="modern-input"></div>
-                    <div class="form-group"><label>Total Material Cost (B/pc)</label><input type="number" step="0.01" class="modern-input" id="total-mat-cost"></div>
-                    <div class="form-group"><label>%</label><input type="number" class="modern-input"></div>   
-                </div>                 
+                    <div class="form-group"><label>Total weight (grams/pc)</label><input type="number" step="0.01" placeholder="0" class="modern-input"></div>
+                </div>
+           
 
             <div class="card-footer-totals">
                 <div class="total-item">
