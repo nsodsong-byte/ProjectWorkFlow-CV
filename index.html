@@ -276,9 +276,9 @@
             <div class="card-header">1. Information</div>
             <div class="card-body">
                 <div class="form-grid">
-                    <div class="form-group"><label>Part No.</label><input type="text" class="modern-input"></div>
-                    <div class="form-group"><label>Part Name</label><input type="text" class="modern-input"></div>
-                    <div class="form-group"><label>Customer</label><input type="text" class="modern-input"></div>
+                    <div class="form-group"><label>Part No.*</label><input type="text" class="modern-input"></div>
+                    <div class="form-group"><label>Part Name*</label><input type="text" class="modern-input"></div>
+                    <div class="form-group"><label>Customer*</label><input type="text" class="modern-input"></div>
                     <div class="form-group"><label>DWR Rev.</label><input type="text" class="modern-input"></div>
                     <div class="form-group"><label>Model</label><input type="text" class="modern-input"></div>
                     
@@ -293,16 +293,13 @@
                     
                     <div class="form-group"><label>SAP Part No.</label><input type="text" class="modern-input"></div>
                     <div class="form-group"><label>Customer Part No.</label><input type="text" class="modern-input"></div>
-                    <div class="form-group"><label>Materials spec</label><input type="text" class="modern-input"></div>
-                    
-                    <div class="form-group"><label>Net weight</label><div class="input-addon-wrapper"><input type="number" step="0.01"><span class="addon">gram(s)</span></div></div>
-                    <div class="form-group"><label>%Gross Weight</label><div class="input-addon-wrapper"><input type="number" step="0.01"><span class="addon">%</span></div></div>
-                    <div class="form-group"><label>Gross Weight</label><div class="input-addon-wrapper"><input type="number" placeholder="0" step="0.01"><span class="addon">gram(s)</span></div></div>
-                    <div class="form-group"><label>Compound use (kg/month)</label><input type="number" placeholder="0" class="modern-input"></div>
+                    <div class="form-group"><label>Materials spec*</label><input type="text" class="modern-input"></div>
+                
+                    <div class="form-group"><label>Compound use (kg/month)*</label><input type="number" placeholder="0" class="modern-input"></div>
                     
 
                     <div class="form-group">
-                        <label>Project Type</label>
+                        <label>Project Type*</label>
                         <select class="modern-input" onchange="toggleOtherInput(this, 'project-type-other')">
                             <option value="" disabled selected>Select...</option>
                             <option value="New model">New model</option>
@@ -313,10 +310,10 @@
                         <input type="text" id="project-type-other" class="modern-input hidden-input" placeholder="Please specify Project Type...">
                     </div>
 
-                    <div class="form-group"><label>Machine Type</label><input type="text" class="modern-input"></div>
+                    <div class="form-group"><label>Machine Type*</label><input type="text" class="modern-input"></div>
                     
                     <div class="form-group">
-                        <label>Mold Type</label>
+                        <label>Mold Type*</label>
                         <select class="modern-input" onchange="toggleOtherInput(this, 'mold-type-other')">
                             <option value="" disabled selected>Select...</option>
                             <option value="Injection">Injection</option>
@@ -330,7 +327,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>Classification</label>
+                        <label>Classification*</label>
                         <select class="modern-input" onchange="toggleOtherInput(this, 'classification-other')">
                             <option value="" disabled selected>Select...</option>
                             <option value="Yes">Yes</option>
@@ -341,7 +338,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Part show</label>
+                        <label>Part show*</label>
                         <select class="modern-input" onchange="toggleOtherInput(this, 'part-show-other')">
                             <option value="" disabled selected>Select...</option>
                             <option value="Yes">Yes</option>
@@ -352,7 +349,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: 1rem;"><label>Picture</label><input type="file" class="modern-input"></div>
+                <div class="form-group" style="margin-top: 1rem;"><label>Picture*</label><input type="file" class="modern-input"></div>
                 <div class="form-group" style="margin-top: 1rem;"><label>Other request</label><textarea rows="2" class="modern-input"></textarea></div>
             </div>
         </div>
@@ -507,10 +504,8 @@
                                 <th>Qty.</th>
                                 <th>Qty unit</th>
                                 <th>Cavity</th>
-                                <th>Cost</th>
+                                <th>Depreciation / Cost</th>
                                 <th>Unit</th>
-                                <th>Depreciation</th>
-                                <th>DP Unit</th>
                                 <th>Remark</th>
                                 <th>Formula cal</th>
                                 <th style="text-align: center;">Reject (Calc)</th>
@@ -529,8 +524,6 @@
                                 <td><input type="number" class="modern-input"></td>
                                 <td><input type="number" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
-                                <td><input type="number" class="modern-input"></td>
-                                <td><input type="text" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
                                 <td style="text-align: center;"><input type="checkbox" class="modern-checkbox reject-cb" onchange="calculateRejectCosts()"></td>
@@ -541,6 +534,10 @@
                         </tbody>
                     </table>
                 </div>
+				<button type="button" class="btn-add" onclick="addRow('tb-curing')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path></svg> 
+                    Add Curing Process Row
+                </button>
 
                 <hr>
 
@@ -553,7 +550,6 @@
                                 <th>Unit</th>
                                 <th>Qty.</th>
                                 <th>Qty unit</th>
-                                <th>Side(s)</th>
                                 <th>Remark</th>
                                 <th>Estimate L/T</th>
                                 <th>Formula cal</th>
@@ -570,7 +566,6 @@
                                 <td><input type="text" class="modern-input"></td>
                                 <td><input type="number" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
-                                <td><input type="number" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
                                 <td><input type="number" class="modern-input"></td>
                                 <td><input type="text" class="modern-input"></td>
@@ -752,12 +747,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="font-weight: 600; color: var(--text-dark); padding-left: 1.5rem;"><input type="hidden" class="item-name" value="Die (Cavity x Die X Price)">Die (Cavity x Die X Price)</td>
+                                <td style="font-weight: 600; color: var(--text-dark); padding-left: 1.5rem;"><input type="hidden" class="item-name" value="Die(Layer; Qty x Cost)">Die(Layer; Qty x Cost)</td>
                                 <td>
                                     <div class="input-addon-wrapper" style="width: 100%;">
-                                        <input type="number" id="die-cavity" oninput="calcdieCost()"><span class="addon">X</span>
+										<input type="number" id="die-layer" oninput="calcdieCost()"><span class="addon">;</span>
                                         <input type="number" id="die-qty" oninput="calcdieCost()"><span class="addon">X</span>
-                                        <input type="number" id="die-price" oninput="calcdieCost()">
+                                        <input type="number" id="die-cost" oninput="calcdieCost()">
                                     </div>
                                 </td>
                                 <td><input type="text" class="modern-input"></td>
@@ -1124,9 +1119,9 @@
     }
 
     function calcdieCost() {
-        var cav = parseFloat(document.getElementById('die-cavity').value) || 0;
+        var cav = parseFloat(document.getElementById('die-layer').value) || 0;
         var qty = parseFloat(document.getElementById('die-qty').value) || 0;
-        var price = parseFloat(document.getElementById('die-price').value) || 0;
+        var price = parseFloat(document.getElementById('die-cost').value) || 0;
         var total = cav * qty * price;
         
         var resultEl = document.getElementById('die-cost-result');
